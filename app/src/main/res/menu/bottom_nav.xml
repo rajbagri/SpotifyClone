@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/home"
+        android:title="home"
+
+        android:icon="@drawable/home"/>
+
+    <item android:id="@+id/search"
+        android:title="search"
+        android:icon="@drawable/search"/>
+
+    <item android:id="@+id/library"
+        android:title="library"
+        android:icon="@drawable/library_svgrepo_com"/>
+
+    <item android:id="@+id/premium"
+        android:title="premium"
+        android:icon="@drawable/spotify_svgrepo_com"/>
+
+
+
+
+</menu>
