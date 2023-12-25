@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.rajbagri.spotifyclone.MusicPlayer.Companion.curPos
 import com.rajbagri.spotifyclone.apiData.DataAdapter
 import com.rajbagri.spotifyclone.databinding.FragmentNowPlayingBinding
@@ -54,11 +55,16 @@ class NowPlaying : Fragment() {
                 .downloader(OkHttp3Downloader(requireContext())) // Use OkHttp3Downloader for cachin
                 .build()
 
-            picasso.load(SearchBar.musicList!![curPos!!].album.cover_xl).fit().into(nowPlayingBinding.imageViewAlbumImage)
+            Glide.with(requireContext())
+                .load(SearchBar.musicList!![curPos!!].album.cover_xl)
+                .into(nowPlayingBinding.imageViewAlbumImage)
+
             nowPlayingBinding.textViewSongName.text = SearchBar.musicList!![curPos!!].title
             nowPlayingBinding.textViewArtistName.text = SearchBar.musicList!![curPos!!].artist.name
 
-            picasso.load(SearchBar.musicList!![curPos!!].album.cover_xl).fit().into(nowPlayingBinding.imageViewBackground)
+            Glide.with(requireContext())
+                .load(SearchBar.musicList!![curPos!!].album.cover_xl)
+                .into(nowPlayingBinding.imageViewBackground)
 
             nowPlayingBinding.imageViewBackground.setRenderEffect(RenderEffect.createBlurEffect(100F, 100F, Shader.TileMode.MIRROR))
             PauseMusic()
