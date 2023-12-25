@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.tabs.TabLayoutMediator
+import com.rajbagri.spotifyclone.BuildConfig
 import com.rajbagri.spotifyclone.R
 import com.rajbagri.spotifyclone.RecentAdapter
 import com.rajbagri.spotifyclone.ViewPager
@@ -71,6 +72,7 @@ class Home : Fragment() {
         }
 
         addDataToList()
+
 
         homeBinding.recyclerViewListSong.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         parentAdapter = songListAdapter(requireContext(), picasso, songList)

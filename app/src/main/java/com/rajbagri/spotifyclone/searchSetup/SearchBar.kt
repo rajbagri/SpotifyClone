@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rajbagri.spotifyclone.BuildConfig
 import com.rajbagri.spotifyclone.apiData.ApiInterface
 import com.rajbagri.spotifyclone.apiData.Data
 import com.rajbagri.spotifyclone.apiData.DataAdapter
@@ -24,9 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class SearchBar : Fragment() {
     private lateinit var searchBarBinding: FragmentSearchBarBinding
-
     private lateinit var adapter: DataAdapter
-
     private lateinit var userInput: String
 
     companion object{
@@ -60,7 +59,7 @@ class SearchBar : Fragment() {
                 userInput = ""
                 userInput = charSequence.toString()
                 if(!userInput.isEmpty()){
-                    val retrofit = retrofitBuilder.getData(userInput)
+                    val retrofit = retrofitBuilder.getData(userInput, BuildConfig.API_KEY)
 
                     retrofit.enqueue(object : Callback<MyData?> {
                         override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
@@ -88,7 +87,7 @@ class SearchBar : Fragment() {
                 userInput = ""
                 userInput = charSequence.toString()
                 if(!userInput.isEmpty()){
-                    val retrofit = retrofitBuilder.getData(userInput)
+                    val retrofit = retrofitBuilder.getData(userInput, BuildConfig.API_KEY)
 
                     retrofit.enqueue(object : Callback<MyData?> {
                         override fun onResponse(call: Call<MyData?>, response: Response<MyData?>) {
